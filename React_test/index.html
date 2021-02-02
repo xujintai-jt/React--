@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-02 21:21:20
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-02 21:37:00
+ * @LastEditTime: 2021-02-02 22:03:08
  * @Description: file content
  * @FilePath: \React--\React_test\index.html
 -->
@@ -17,19 +17,18 @@
 
 <body>
   <div id="test">
-    <h1></h1>
   </div>
-  <script></script>
-  <script>
-
-  </script>
   <!-- 加载 React。-->
   <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-
-  <!-- 加载我们的 React 组件。-->
-  <!-- <script src="like_button.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+  <script type="text/babel">
+    //1.创建虚拟dom元素对象(利用babel:jsx)
+    let vDom = <h1> 我是插入的虚拟Dom </h1>
+    //2.将虚拟dom元素插入dom
+    ReactDOM.render(vDom,document.getElementById('test'))
+  </script>
 </body>
 
 </html>
