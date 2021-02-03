@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-02 21:21:20
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-02 22:03:08
+ * @LastEditTime: 2021-02-03 10:53:25
  * @Description: file content
  * @FilePath: \React--\React_test\index.html
 -->
@@ -25,9 +25,9 @@
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
   <script type="text/babel">
     //1.创建虚拟dom元素对象(利用babel:jsx)
-    let vDom = <h1> 我是插入的虚拟Dom </h1>
+    let vDom1 = <div><h1> 我是插入的虚拟Dom1 </h1><h1> 我是插入的虚拟Dom2 </h1></div>
     //2.将虚拟dom元素插入dom
-    ReactDOM.render(vDom,document.getElementById('test'))
+    ReactDOM.render(vDom1,document.getElementById('test'))
   </script>
 </body>
 
