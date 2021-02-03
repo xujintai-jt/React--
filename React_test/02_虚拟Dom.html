@@ -1,10 +1,10 @@
 <!--
  * @Author: xujintai
- * @Date: 2021-02-02 21:21:20
+ * @Date: 2021-02-03 15:00:53
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-03 15:08:18
+ * @LastEditTime: 2021-02-03 15:22:17
  * @Description: file content
- * @FilePath: \React--\React_test\index.html
+ * @FilePath: \React--\React_test\02_虚拟Dom.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +16,9 @@
 </head>
 
 <body>
-  <div id="test">
-  </div>
+
+  <div id="test1"></div>
+  <div id="test2"></div>
   <!-- 加载 React。-->
   <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
@@ -25,13 +26,23 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <!--  babel将es6转换为es5，将jsx转换为js -->
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
-  <script type="text/babel">
-    //1.创建虚拟DOM元素对象(利用babel:jsx)
-    //jsx语法
-    let vDom1 = <div><h1> 我是插入的虚拟Dom1 </h1><h1> 我是插入的虚拟Dom2 </h1></div>
+  <script>
+    //1.创建虚拟Dom (未使用jsx语法)
+    let element1 = React.createElement('h1', {
+      id: 'MyTitle1'
+    }, 'hello')
     //2.渲染虚拟DOM
-    ReactDOM.render(vDom1,document.getElementById('test'))
+    ReactDOM.render(element1, document.getElementById('test1'))
   </script>
+
+  <script type="text/babel">
+    let myId ='h2'
+    //1.创建虚拟Dom (使用jsx语法)
+    let element2 = <h1 id={myId.toUpperCase()}>{myId.toUpperCase()}</h1>
+    //2.渲染虚拟DOM
+    ReactDOM.render(element2, document.getElementById('test2'))
+  </script>
+
 </body>
 
 </html>
