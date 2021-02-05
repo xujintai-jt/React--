@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-05 17:05:35
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-05 17:19:47
+ * @LastEditTime: 2021-02-05 21:24:08
  * @Description: file content
  * @FilePath: \React--\React_test\05_组件demo.html
 -->
@@ -51,31 +51,31 @@
 
 
 
-    let count=0
-    function addCount(){
-      count++
-      console.log(count);
-      if(count%2===0){
+    let boolean=true
+    function isDubble(){
+      boolean=!boolean
+      if(boolean){
          ReactDOM.render(<MyComponent1/>,document.getElementById('father'))
       }
-    else{
-      ReactDOM.render(<MyComponent2/>,document.getElementById('father'))
-    }
-    }
+     else{
+       ReactDOM.render(<MyComponent2/>,document.getElementById('father'))
+      }
+     }
+    
     function MyComponent1(){
       return (<div>
-        <p>hello,i am 偶数</p>
-        <button onClick={addCount}>点击切换内容</button>
+        <p>hello,i am true</p>
+        <button onClick={isDubble}>点击切换内容</button>
         </div>)
     }
 
     function MyComponent2(){
       return (<div>
-        <p>hello,i am 奇数</p>
-        <button onClick={addCount}>点击切换内容</button>
+        <p>hello,i am false</p>
+        <button onClick={isDubble}>点击切换内容</button>
         </div>)
     }
-    if(count%2===0){
+    if(boolean){
          ReactDOM.render(<MyComponent1/>,document.getElementById('father'))
       }
     else{
