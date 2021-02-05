@@ -1,10 +1,10 @@
 <!--
  * @Author: xujintai
- * @Date: 2021-02-05 21:39:27
+ * @Date: 2021-02-05 22:08:21
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-05 21:55:04
+ * @LastEditTime: 2021-02-05 22:19:04
  * @Description: file content
- * @FilePath: \React--\React_test\06_计时器组件.html
+ * @FilePath: \React--\React_test\07_组件props.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,21 +21,22 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
   <script type="text/babel">
-    //react会对比更新数据的地方进行DOM更新
-    //React DOM 会将元素和它的子元素与它们之前的状态进行比较，并只会进行必要的更新来使 DOM 达到预期的状态。
-   function tick() {
-   const element = (
-    <div>
-      <h1>Hello, world! {new Date().toLocaleTimeString()}</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-    </div>
-  );
-  ReactDOM.render(element, document.getElementById('root'));
-}
+    function Welcome(props) {
+      console.log(props);
+      return (<div>Hello, {props.name}
+        <Child/></div>);
+   }
 
- setInterval(tick, 1000);
-
+   function Child() {
+      return (<h2>Hello, i am son</h2>);
+   }
+   const element = <Welcome name="Sara" age="22"/>;
+   ReactDOM.render(
+     element,
+     document.getElementById('root')
+   );
   </script>
+
 </body>
 
 </html>
