@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-05 16:42:41
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-05 16:54:58
+ * @LastEditTime: 2021-02-05 17:02:03
  * @Description: file content
  * @FilePath: \React--\React_test\_04test组件.html
 -->
@@ -22,11 +22,20 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
   <script type="text/babel">
-    // 1.工厂函数组件
+    //1.创建组件
+    //(1)工厂函数组件
     function MyComponent() {
       return <h2>我是一个工厂函数组件</h2>
     }
-    ReactDOM.render(<MyComponent/>,document.getElementById("father"))
+    //(2)类函数组件
+    class MyComponent2 extends React.Component{
+      render(){
+        console.log(this);
+        return <h2>我是一个类函数组件</h2>
+      }
+    }
+    //2.渲染组件到真实DOM
+    ReactDOM.render(<MyComponent2/>,document.getElementById("father"))
 
   </script>
 

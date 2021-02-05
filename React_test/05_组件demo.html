@@ -1,0 +1,88 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-05 17:05:35
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-05 17:19:47
+ * @Description: file content
+ * @FilePath: \React--\React_test\05_组件demo.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #father {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 400px;
+      width: 400px;
+      background-color: #FFD000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="father"></div>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+  <script type="text/babel">
+    // let count=0
+    // function addCount(){
+    //   count++
+    //   console.log(count);
+    // }
+    // function MyComponent(){
+    //   return (<div>
+    //     <p>{count%2===0?'hello,i am 偶数':'hello,i am 奇数'}</p>
+    //     <button onClick={addCount}>点击切换内容</button>
+    //     </div>)
+    // }
+
+    // ReactDOM.render(<MyComponent/>,document.getElementById('father'))
+
+
+
+    let count=0
+    function addCount(){
+      count++
+      console.log(count);
+      if(count%2===0){
+         ReactDOM.render(<MyComponent1/>,document.getElementById('father'))
+      }
+    else{
+      ReactDOM.render(<MyComponent2/>,document.getElementById('father'))
+    }
+    }
+    function MyComponent1(){
+      return (<div>
+        <p>hello,i am 偶数</p>
+        <button onClick={addCount}>点击切换内容</button>
+        </div>)
+    }
+
+    function MyComponent2(){
+      return (<div>
+        <p>hello,i am 奇数</p>
+        <button onClick={addCount}>点击切换内容</button>
+        </div>)
+    }
+    if(count%2===0){
+         ReactDOM.render(<MyComponent1/>,document.getElementById('father'))
+      }
+    else{
+      ReactDOM.render(<MyComponent2/>,document.getElementById('father'))
+    }
+  </script>
+
+</body>
+
+</html>
