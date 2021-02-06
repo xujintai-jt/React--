@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-05 22:08:21
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-05 22:19:04
+ * @LastEditTime: 2021-02-06 14:12:00
  * @Description: file content
  * @FilePath: \React--\React_test\07_组件props.html
 -->
@@ -23,14 +23,13 @@
   <script type="text/babel">
     function Welcome(props) {
       console.log(props);
-      return (<div>Hello, {props.name}
-        <Child/></div>);
+      return (<div>Hello, {props.name}</div>);
    }
 
-   function Child() {
+    function Child() {
       return (<h2>Hello, i am son</h2>);
    }
-   const element = <Welcome name="Sara" age="22"/>;
+   const element = <Welcome name="Sara" age="22"><Child/></Welcome>;
    ReactDOM.render(
      element,
      document.getElementById('root')
