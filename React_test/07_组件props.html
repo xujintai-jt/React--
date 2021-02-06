@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-05 22:08:21
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-06 14:12:00
+ * @LastEditTime: 2021-02-06 14:23:57
  * @Description: file content
  * @FilePath: \React--\React_test\07_组件props.html
 -->
@@ -21,19 +21,17 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
   <script type="text/babel">
-    function Welcome(props) {
+    function Welcome(props){
       console.log(props);
-      return (<div>Hello, {props.name}</div>);
-   }
+      return (<div><h1>{props.name}</h1>{props.children}</div>)
+    }
 
-    function Child() {
-      return (<h2>Hello, i am son</h2>);
-   }
-   const element = <Welcome name="Sara" age="22"><Child/></Welcome>;
-   ReactDOM.render(
-     element,
-     document.getElementById('root')
-   );
+    function Children(props){
+      console.log(props);
+      return (<h2>{props.name}</h2>)
+    }
+
+    ReactDOM.render(<Welcome name="Welcome组件"><Children name="children组件" /></Welcome>,document.getElementById("root"))
   </script>
 
 </body>
