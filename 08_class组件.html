@@ -1,0 +1,60 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-06 16:09:49
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-06 16:37:13
+ * @Description: file content
+ * @FilePath: \React--\08_class组件.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+  <script type="text/babel">
+    class Clock extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { date: new Date() };
+          console.log(this.state);
+        }
+
+        componentDidMount() {
+          this.timerID = setInterval(() => this.tick(), 1000);
+        }
+
+        componentWillUnmount() {
+          console.log("组件销毁");
+          // clearInterval(this.timerID);
+        }
+
+        tick() {
+          this.setState({
+            date: new Date(),
+          });
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>Hello,world</h1>
+              <h1>{this.state.date.toLocaleTimeString()}</h1>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<Clock />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

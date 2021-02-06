@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-05 22:08:21
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-06 14:26:50
+ * @LastEditTime: 2021-02-06 16:33:47
  * @Description: file content
  * @FilePath: \React--\React_test\07_组件props.html
 -->
@@ -10,8 +10,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 </head>
 
@@ -21,22 +21,29 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
   <script type="text/babel">
-    function Welcome(props){
-      // props.children为Children组件
-      return (<div><h1>{props.name}</h1>
-        {props.children}
-        <Children name="children组件" />
-        </div>)
-    }
+    function Welcome(props) {
+        // props.children为Children组件
+        return (
+          <div>
+            <h1>{props.name}</h1>
+            {props.children}
+            <Children name="children组件" />
+          </div>
+        );
+      }
 
-    function Children(props){
-      console.log(props);
-      return (<h2>{props.name}</h2>)
-    }
+      function Children(props) {
+        console.log(props);
+        return <h2>{props.name}</h2>;
+      }
 
-    ReactDOM.render(<Welcome name="Welcome组件"><Children name="children组件" /></Welcome>,document.getElementById("root"))
-  </script>
-
+      ReactDOM.render(
+        <Welcome name="Welcome组件">
+          <Children name="children组件" />
+        </Welcome>,
+        document.getElementById("root")
+      );
+    </script>
 </body>
 
 </html>
