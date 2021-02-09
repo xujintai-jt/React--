@@ -1,0 +1,41 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-09 21:15:52
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-09 21:36:53
+ * @Description: file content
+ * @FilePath: \React--\React_test\09_class组件demo.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+  <script type="text/babel">
+    class Like extends React.Component {
+        constructor(props) {
+          super(props);
+          console.log(props);
+          this.state = { isLike: "true" };
+        }
+
+        render() {
+          return <h1>我{this.state.isLike}喜欢</h1>;
+        }
+      }
+
+      //组件中的属性命名不能用'key'作为属性名，不然会报错
+      ReactDOM.render(<Like name="like" />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
