@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-09 21:15:52
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-15 14:37:22
+ * @LastEditTime: 2021-02-15 14:42:22
  * @Description: file content
  * @FilePath: \React--\React_test\09_class组件demo.html
 -->
@@ -36,6 +36,7 @@
         }
 
         render() {
+          // return <h1 onClick={this.handle.bind(this)}>{this.state.isLike?"你喜欢我":"我喜欢你"}</h1>;
           return <h1 onClick={this.handle}>{this.state.isLike?"你喜欢我":"我喜欢你"}</h1>;
         }
       }

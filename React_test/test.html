@@ -1,0 +1,34 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-15 14:38:47
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-15 14:40:47
+ * @Description: file content
+ * @FilePath: \React--\React_test\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const a = '1'
+
+    function Fn() {}
+    Fn.prototype.console = function () {
+      console.log(a);
+    }
+
+    const fn1 = new Fn()
+    fn1.a = '2'
+    fn1.console()
+  </script>
+
+</body>
+
+</html>
