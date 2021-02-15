@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-15 15:01:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-15 15:58:51
+ * @LastEditTime: 2021-02-15 16:02:56
  * @Description: file content
  * @FilePath: \React--\React_test\010_class组件_props.html
 -->
@@ -30,7 +30,7 @@
      }
 
      render(){
-       return <ul><li>姓名:{this.props.obj.name}</li><li>性别:{this.props.obj.sex||'男'}</li><li>年龄:{this.props.obj.age||18}</li></ul>
+       return <ul><li>姓名:{this.props.obj.name}</li><li>性别:{this.props.obj.sex||'男'}</li><li>年龄:{Number(this.props.obj.age)||18}</li></ul>
      }
     }
     const Private1={
