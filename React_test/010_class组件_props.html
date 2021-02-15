@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-15 15:01:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-15 15:13:44
+ * @LastEditTime: 2021-02-15 15:58:51
  * @Description: file content
  * @FilePath: \React--\React_test\010_class组件_props.html
 -->
@@ -30,13 +30,28 @@
      }
 
      render(){
-       return <ul><li>姓名:{this.props.name}</li><li>性别:{this.props.sex||'男'}</li><li>年龄:{this.props.age||18}</li></ul>
+       return <ul><li>姓名:{this.props.obj.name}</li><li>性别:{this.props.obj.sex||'男'}</li><li>年龄:{this.props.obj.age||18}</li></ul>
      }
     }
+    const Private1={
+      name:"Tom",
+       sex:"女" ,
+       age:"18"
+    }
 
-    ReactDOM.render(<Private name="Tom" sex="女" age="18" />,document.getElementById("root1"))
-    ReactDOM.render(<Private name="Jack" sex="男" age="17" />,document.getElementById("root2"))
-    ReactDOM.render(<Private name="Mike"  />,document.getElementById("root3"))
+    const Private2={
+      name:"Jack",
+       sex:"男" ,
+       age:"17"
+    }
+
+    const Private3={
+      name:"Mike",
+    }
+
+    ReactDOM.render(<Private obj={Private1} />,document.getElementById("root1"))
+    ReactDOM.render(<Private obj={Private2} />,document.getElementById("root2"))
+    ReactDOM.render(<Private obj={Private3}  />,document.getElementById("root3"))
   </script>
 
 </body>
