@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-15 15:01:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-15 16:02:56
+ * @LastEditTime: 2021-02-15 16:17:50
  * @Description: file content
  * @FilePath: \React--\React_test\010_class组件_props.html
 -->
@@ -30,9 +30,17 @@
      }
 
      render(){
-       return <ul><li>姓名:{this.props.obj.name}</li><li>性别:{this.props.obj.sex||'男'}</li><li>年龄:{Number(this.props.obj.age)||18}</li></ul>
-     }
+      //  return <ul><li>姓名:{this.props.obj.name}</li><li>性别:{this.props.obj.sex||'男'}</li><li>年龄:{Number(this.props.obj.age)||18}</li></ul>
+      return <ul><li>姓名:{this.props.name}</li><li>性别:{this.props.sex}</li><li>年龄:{Number(this.props.age)}</li></ul>
     }
+    }
+
+    // 指定默认属性值
+    Private.defaultProps={
+        age:18,
+        sex:'男'
+    }
+    
     const Private1={
       name:"Tom",
        sex:"女" ,
@@ -49,9 +57,9 @@
       name:"Mike",
     }
 
-    ReactDOM.render(<Private obj={Private1} />,document.getElementById("root1"))
-    ReactDOM.render(<Private obj={Private2} />,document.getElementById("root2"))
-    ReactDOM.render(<Private obj={Private3}  />,document.getElementById("root3"))
+    ReactDOM.render(<Private name={Private1.name} sex={Private1.sex} age={Private1.age}/>,document.getElementById("root1"))
+    ReactDOM.render(<Private name={Private2.name} sex={Private2.sex} age={Private2.age}/>,document.getElementById("root2"))
+    ReactDOM.render(<Private name={Private3.name} sex={Private3.sex} age={Private3.age} />,document.getElementById("root3"))
   </script>
 
 </body>
