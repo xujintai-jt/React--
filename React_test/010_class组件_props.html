@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-15 15:01:16
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-15 15:01:16
+ * @LastEditTime: 2021-02-15 15:13:44
  * @Description: file content
  * @FilePath: \React--\React_test\010_class组件_props.html
 -->
@@ -16,6 +16,28 @@
 </head>
 
 <body>
+  <div id="root1"></div>
+  <div id="root2"></div>
+  <div id="root3"></div>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+  <script type="text/babel">
+    class Private extends  React.Component  {
+     constructor(props){
+       super(props)
+       console.log(props);
+     }
+
+     render(){
+       return <ul><li>姓名:{this.props.name}</li><li>性别:{this.props.sex||'男'}</li><li>年龄:{this.props.age||18}</li></ul>
+     }
+    }
+
+    ReactDOM.render(<Private name="Tom" sex="女" age="18" />,document.getElementById("root1"))
+    ReactDOM.render(<Private name="Jack" sex="男" age="17" />,document.getElementById("root2"))
+    ReactDOM.render(<Private name="Mike"  />,document.getElementById("root3"))
+  </script>
 
 </body>
 
