@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-17 22:30:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-17 23:53:04
+ * @LastEditTime: 2021-02-18 00:13:13
  * @Description: file content
  * @FilePath: \React--\React_test\011_refs.html
 -->
@@ -17,6 +17,7 @@
     * {
       margin: 0;
       padding: 0;
+      margin-right: 20px;
     }
 
     input {
@@ -37,7 +38,8 @@
         constructor(props) {
           super(props)
           this.onclickAlert=this.onclickAlert.bind(this)
-          this.onBlurAlert=this.onBlurAlert.bind(this)
+          this.onBlurAlert2=this.onBlurAlert2.bind(this)
+          this.onBlurAlert3=this.onBlurAlert3.bind(this)
         }
 
         onclickAlert(){
@@ -45,9 +47,13 @@
           alert(result)
         }
 
-        onBlurAlert(){
+        onBlurAlert2(){
           const result=this.refs.input2.value.trim()
           alert(result)
+        }
+
+        onBlurAlert3(){
+          alert(this.input3.value.trim())
         }
 
         render() {
@@ -55,11 +61,19 @@
             <div>
               <input type="text" ref="input1" />
               <button onClick={this.onclickAlert}>点击打印输入框内容</button>
+         
               <input
                 type="text"
+                onBlur={this.onBlurAlert2}
+                placeholder="失去焦点打印输入框内容2"
                 ref="input2"
-                placeholder="失去焦点打印输入框内容"
-                onBlur={this.onBlurAlert}
+              />
+              
+              <input
+                type="text"
+                ref={input=>this.input3=input}
+                placeholder="失去焦点打印输入框内容3"
+                onBlur={this.onBlurAlert3}
               />
             </div>
           );
