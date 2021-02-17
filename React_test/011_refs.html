@@ -1,0 +1,65 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-17 22:30:04
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-17 23:44:00
+ * @Description: file content
+ * @FilePath: \React--\React_test\011_refs.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    input {
+      outline: none;
+      height: 20px;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
+  <script type="text/babel">
+    class MyComponent extends React.Component {
+        constructor(props) {
+          super(props)
+          this.clickAlert=this.clickAlert.bind(this)
+        }
+
+        clickAlert(){
+          console.log(this.$refs.input1);
+        }
+
+        render() {
+          return (
+            <div>
+              <input type="text" ref="input1" />
+              <button onClick={this.clickAlert}>点击打印输入框内容</button>
+              <input
+                type="text"
+                ref="input2"
+                placeholder="失去焦点打印输入框内容"
+              />
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<MyComponent name="MyComponent"/>, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
