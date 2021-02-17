@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-17 22:30:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-17 23:44:00
+ * @LastEditTime: 2021-02-17 23:51:10
  * @Description: file content
  * @FilePath: \React--\React_test\011_refs.html
 -->
@@ -36,22 +36,24 @@
     class MyComponent extends React.Component {
         constructor(props) {
           super(props)
-          this.clickAlert=this.clickAlert.bind(this)
+          this.onclickAlert=this.onclickAlert.bind(this)
         }
 
-        clickAlert(){
-          console.log(this.$refs.input1);
+        onclickAlert(){
+          const result=this.refs.input1.value.trim()
+          alert(result)
         }
 
         render() {
           return (
             <div>
               <input type="text" ref="input1" />
-              <button onClick={this.clickAlert}>点击打印输入框内容</button>
+              <button onClick={this.onclickAlert}>点击打印输入框内容</button>
               <input
                 type="text"
                 ref="input2"
                 placeholder="失去焦点打印输入框内容"
+                onBlur={this.onBlurAlert}
               />
             </div>
           );
