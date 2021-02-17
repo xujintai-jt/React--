@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-17 22:30:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-17 23:51:10
+ * @LastEditTime: 2021-02-17 23:53:04
  * @Description: file content
  * @FilePath: \React--\React_test\011_refs.html
 -->
@@ -37,10 +37,16 @@
         constructor(props) {
           super(props)
           this.onclickAlert=this.onclickAlert.bind(this)
+          this.onBlurAlert=this.onBlurAlert.bind(this)
         }
 
         onclickAlert(){
           const result=this.refs.input1.value.trim()
+          alert(result)
+        }
+
+        onBlurAlert(){
+          const result=this.refs.input2.value.trim()
           alert(result)
         }
 
