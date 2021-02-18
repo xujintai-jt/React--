@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-18 22:40:54
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-18 22:55:17
+ * @LastEditTime: 2021-02-18 23:05:06
  * @Description: file content
  * @FilePath: \React--\React_demo\demo1.html
 -->
@@ -24,39 +24,61 @@
     class App extends React.Component {
         constructor(props) {
           // super(props)
-          super()
-          this.state={
-            Todos:['吃饭','睡觉','打豆豆']
-          }
+          super();
+          this.state = {
+            Todos: ["吃饭", "睡觉", "打豆豆"],
+          };
         }
 
         render() {
+          const Todos = this.state.Todos;
           return (
             <div>
-              <Add />
-              <Lists Todos={this.state.Todos}  />
+              <Add Todos={Todos} />
+              <Lists Todos={Todos} />
             </div>
           );
         }
       }
 
       class Add extends React.Component {
+        constructor() {
+          super()
+          this.addTodo=this.addTodo.bind(this)
+        }
+
+        addTodo() {
+         const {value} = this.refs.inputTodo
+          this.props.Todos.unshift(value)
+          console.log( this.props.Todos);
+        }
+
         render() {
-          return (<div><input type="text" /> <button>点击添加数据</button></div>)
+          return (
+            <div>
+              <input ref="inputTodo" type="text" />{" "}
+              <button onClick={this.addTodo}>
+                点击添加数据#{this.props.Todos.length + 1}
+              </button>
+            </div>
+          );
         }
       }
 
       class Lists extends React.Component {
         render() {
-          const Todos=this.props.Todos
-          return <ul>
-            {Todos.map((item,index)=><li key={index} >{item}</li>)}
-            </ul>;
+          const {Todos} = this.props;
+          return (
+            <ul>
+              {Todos.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          );
         }
       }
 
-
-      ReactDOM.render(<App/>,document.getElementById("root"))
+      ReactDOM.render(<App />, document.getElementById("root"));
     </script>
 </body>
 
