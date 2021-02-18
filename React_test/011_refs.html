@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-17 22:30:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-18 00:13:13
+ * @LastEditTime: 2021-02-18 00:16:29
  * @Description: file content
  * @FilePath: \React--\React_test\011_refs.html
 -->
@@ -52,7 +52,8 @@
           alert(result)
         }
 
-        onBlurAlert3(){
+        onBlurAlert3(event){
+          console.log(event);
           alert(this.input3.value.trim())
         }
 
