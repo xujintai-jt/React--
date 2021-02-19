@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-18 22:40:54
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-19 15:05:45
+ * @LastEditTime: 2021-02-19 15:12:27
  * @Description: file content
  * @FilePath: \React--\React_demo\demo1.html
 -->
@@ -43,6 +43,7 @@
           const { Todos } = this.state;
           return (
             <div>
+              <h1>Simple Todo Lists</h1>
               <Add Todos={Todos} addTodo={this.addTodo} />
               <Lists Todos={Todos} />
             </div>
@@ -58,9 +59,12 @@
 
         add() {
           const { value } = this.inputTodo;
+          //判断输入数据合理性
           if (value) {
             this.props.addTodo(value.trim());
           }
+          //清除输入框
+          this.inputTodo.value=""
         }
 
         render() {
