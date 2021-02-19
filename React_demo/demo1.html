@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-18 22:40:54
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-19 14:54:08
+ * @LastEditTime: 2021-02-19 15:05:45
  * @Description: file content
  * @FilePath: \React--\React_demo\demo1.html
 -->
@@ -57,7 +57,7 @@
         }
 
         add() {
-          const { value } = this.refs.inputTodo;
+          const { value } = this.inputTodo;
           if (value) {
             this.props.addTodo(value.trim());
           }
@@ -67,7 +67,7 @@
           const { addTodo, Todos } = this.props;
           return (
             <div>
-              <input ref="inputTodo" type="text" />
+              <input ref={input=>this.inputTodo=input} type="text" />
               <button onClick={this.add}>
                 点击添加数据#{Todos.length + 1}
               </button>
