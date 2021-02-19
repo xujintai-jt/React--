@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-18 22:40:54
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-19 14:04:27
+ * @LastEditTime: 2021-02-19 14:30:46
  * @Description: file content
  * @FilePath: \React--\React_demo\demo1.html
 -->
@@ -23,18 +23,27 @@
   <script type="text/babel">
     class App extends React.Component {
         constructor(props) {
-          // super(props)
-          super();
+          super(props)
           this.state = {
             Todos: ["吃饭", "睡觉", "打豆豆"],
           };
+          this.addTodo=this.addTodo.bind(this)
+        }
+
+        addTodo(todo) {
+          console.log(this.state.Todos,value);
+        //  const Todos= this.props.Todos.unshift(value)
+        //  console.log(this.props.Todos);
+        //   this.setState({
+        //     Todos,
+        //   })
         }
 
         render() {
-          const Todos = this.state.Todos;
+          const {Todos} = this.state;
           return (
             <div>
-              <Add Todos={Todos} />
+              <Add Todos={Todos} addTodo={this.addTodo} />
               <Lists Todos={Todos} />
             </div>
           );
@@ -44,21 +53,15 @@
       class Add extends React.Component {
         constructor(props) {
           super(props)
-          this.addTodo=this.addTodo.bind(this)
-        }
-
-        addTodo() {
-         const {value} = this.refs.inputTodo
-          this.props.Todos.unshift(value)
-          console.log( this.props.Todos);
         }
 
         render() {
+          const {addTodo,Todos}=this.props
           return (
             <div>
-              <input ref="inputTodo" type="text" />{" "}
-              <button onClick={this.addTodo}>
-                点击添加数据#{this.props.Todos.length + 1}
+              <input ref="inputTodo" type="text" />
+              <button onClick={addTodo}>
+                点击添加数据#{Todos.length + 1}
               </button>
             </div>
           );

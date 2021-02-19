@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-15 14:38:47
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-15 14:40:47
+ * @LastEditTime: 2021-02-19 14:35:43
  * @Description: file content
  * @FilePath: \React--\React_test\test.html
 -->
@@ -17,16 +17,18 @@
 
 <body>
   <script>
-    const a = '1'
-
-    function Fn() {}
-    Fn.prototype.console = function () {
-      console.log(a);
+    const obj = {
+      a: {
+        b: 1
+      }
     }
 
-    const fn1 = new Fn()
-    fn1.a = '2'
-    fn1.console()
+    const {
+      a
+    } = obj
+    a.b = 2
+    console.log('obj', obj);
+    console.log('a', a);
   </script>
 
 </body>
