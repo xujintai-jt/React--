@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-19 16:23:51
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-19 16:45:37
+ * @LastEditTime: 2021-02-20 20:08:14
  * @Description: file content
  * @FilePath: \React--\React_demo\demo2.html
 -->
@@ -34,11 +34,11 @@
 
           render() {
             return (
-              <form onSubmit={this.handleSubmit}>
+              <form>
                 <span>用户名:</span>
                 <input type="text" ref={input=>this.nameInput=input} />
                 <span>密码:</span>
-                <input type="password" ref={input=>this.passwordInput=input} /> <input type="submit" value="登陆" />
+                <input type="password" ref={input=>this.passwordInput=input} /> <input type="submit" onClick={this.handleSubmit} value="登陆" />
               </form>
             );
           }
