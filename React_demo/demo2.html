@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-19 16:23:51
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-20 20:08:14
+ * @LastEditTime: 2021-02-20 20:35:31
  * @Description: file content
  * @FilePath: \React--\React_demo\demo2.html
 -->
@@ -22,49 +22,47 @@
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
   <script type="text/babel">
     class Form extends React.Component {
-          constructor(props) {
-            super(props)
-            this.handleSubmit = this.handleSubmit.bind(this)
-          }
-
-          handleSubmit(event) {
-            alert(`登陆的用户名是${this.nameInput.value}密码是${this.passwordInput.value}`)
-            event.preventDefault();
-          }
-
-          render() {
-            return (
-              <form>
-                <span>用户名:</span>
-                <input type="text" ref={input=>this.nameInput=input} />
-                <span>密码:</span>
-                <input type="password" ref={input=>this.passwordInput=input} /> <input type="submit" onClick={this.handleSubmit} value="登陆" />
-              </form>
-            );
-          }
+        constructor(props) {
+          super(props);
+          this.state = {
+            pwd: "",
+          };
+          this.handleSubmit = this.handleSubmit.bind(this);
+          this.psdChange = this.psdChange.bind(this);
         }
 
-      // function Form() {
-      //   return (
-      //     <form onSubmit={this.handleSubmit}>
-      //       <span>用户名:</span>
-      //       <input type="text" ref={(input) => (this.nameInput = input)} />
-      //       <span>密码:</span>
-      //       <input
-      //         type="password"
-      //         ref={(input) => (this.passwordInput = input)}
-      //       />
-      //       <input type="submit" value="登陆" />
-      //     </form>
-      //   );
-      // }
+        handleSubmit(event) {
+          const name=this.nameInput.value
+          const {pwd}=this.state
+          alert(
+            `登陆的用户名是${name}密码是${pwd}`
+          );
+          event.preventDefault();
+        }
 
-      // Form.prototype.handleSubmit = function () {
-      //   alert(
-      //     `登陆的用户名是${this.nameInput.value}密码是${this.passwordInput.value}`
-      //   );
-      //   event.preventDefault();
-      // };
+        psdChange(event) {
+          const pwd = event.target.value;
+          this.setState({
+            pwd,
+          });
+        }
+
+        render() {
+          return (
+            <form>
+              <span>用户名:</span>
+              <input type="text" ref={(input) => (this.nameInput = input)} />
+              <span>密码:</span>
+              <input
+                type="password"
+                value={this.state.pwd}
+                onChange={this.psdChange}
+              />
+              <input type="submit" onClick={this.handleSubmit} value="登陆" />
+            </form>
+          );
+        }
+      }
 
       ReactDOM.render(<Form />, document.getElementById("root"));
     </script>
