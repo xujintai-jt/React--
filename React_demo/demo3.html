@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-22 14:07:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-22 15:05:37
+ * @LastEditTime: 2021-02-22 15:25:55
  * @Description: file content
  * @FilePath: \React--\React_demo\demo3.html
 -->
@@ -35,16 +35,16 @@
         //组件挂载完毕
         componentDidMount() {
           this.state.setInterval = setInterval(() => {
-            const { opacity } = this.state;
+            let { opacity } = this.state;
             if (parseInt(opacity * 10) === 0) {
               this.setState({
                 opacity: 1,
                 isShow:'block'
               });
             } else {
-              var newOpacity = opacity - 0.1;
+               opacity -= 0.1;
               this.setState({
-              opacity:newOpacity,
+              opacity,
               });
             }
           }, 100);
