@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-22 14:07:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-22 14:07:29
+ * @LastEditTime: 2021-02-22 15:05:37
  * @Description: file content
  * @FilePath: \React--\React_demo\demo3.html
 -->
@@ -10,19 +10,70 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
 </head>
 
 <body>
+  <div id="root"></div>
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.min.js"></script>
   <script type="text/babel">
+    class Demo extends React.Component {
+        constructor(props) {
+          super(props);
+          //设置状态属性
+          this.state = {
+            opacity: 1,
+            setInterval: null,
+          };
+          //绑定this
+          this.cancelSetInterval=this.cancelSetInterval.bind(this)
+        }
+        //组件挂载完毕
+        componentDidMount() {
+          this.state.setInterval = setInterval(() => {
+            const { opacity } = this.state;
+            if (parseInt(opacity * 10) === 0) {
+              this.setState({
+                opacity: 1,
+                isShow:'block'
+              });
+            } else {
+              var newOpacity = opacity - 0.1;
+              this.setState({
+              opacity:newOpacity,
+              });
+            }
+          }, 100);
+        }
 
-  </script>
+        cancelSetInterval(){
+         const {setInterval}=this.state 
+          clearInterval(setInterval)
+         this.setState({
+          isShow:'none'
+         })
+        }
 
+        render() {
+          const {opacity,isShow} = this.state;
+          return (
+            <div style={{display:isShow}}>
+              <h1 style={{ opacity }}>{this.props.text}</h1>
+              <button onClick={this.cancelSetInterval}>不活了</button>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <Demo text="学不会React怎么办" />,
+        document.getElementById("root")
+      );
+    </script>
 </body>
 
 </html>
