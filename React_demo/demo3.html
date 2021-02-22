@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-22 14:07:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-22 15:30:35
+ * @LastEditTime: 2021-02-22 15:42:43
  * @Description: file content
  * @FilePath: \React--\React_demo\demo3.html
 -->
@@ -30,7 +30,7 @@
             setInterval: null,
           };
           //绑定this
-          this.cancelSetInterval=this.cancelSetInterval.bind(this)
+          this.distoryComponent=this.distoryComponent.bind(this)
         }
         //组件挂载完毕
         componentDidMount() {
@@ -44,15 +44,20 @@
             this.setState({
               opacity,
               });
-          }, 100);
+          }, 200);
         }
 
-        cancelSetInterval(){
-         const {setInterval}=this.state 
+        componentWillUnmount(){
+          console.log('组件卸载');
+          const {setInterval}=this.state 
           clearInterval(setInterval)
          this.setState({
           isShow:'none'
          })
+        }
+
+        distoryComponent(){
+          ReactDOM.unmountComponentAtNode(document.getElementById("root"))
         }
 
         render() {
@@ -60,7 +65,7 @@
           return (
             <div style={{display:isShow}}>
               <h1 style={{ opacity }}>{this.props.text}</h1>
-              <button onClick={this.cancelSetInterval}>不活了</button>
+              <button onClick={this.distoryComponent}>不活了</button>
             </div>
           );
         }
