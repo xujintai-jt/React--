@@ -2,7 +2,7 @@
  * @Author: xujintai
  * @Date: 2021-02-22 14:07:04
  * @LastEditors: xujintai
- * @LastEditTime: 2021-02-22 15:42:43
+ * @LastEditTime: 2021-02-23 09:46:16
  * @Description: file content
  * @FilePath: \React--\React_demo\demo3.html
 -->
@@ -27,43 +27,41 @@
           //设置状态属性
           this.state = {
             opacity: 1,
-            setInterval: null,
           };
           //绑定this
-          this.distoryComponent=this.distoryComponent.bind(this)
+          this.distoryComponent = this.distoryComponent.bind(this);
         }
         //组件挂载完毕
         componentDidMount() {
-          this.state.setInterval = setInterval(() => {
+          this.setInterval = setInterval(() => {
             let { opacity } = this.state;
             if (parseInt(opacity * 10) === 0) {
-                opacity=1
+              opacity = 1;
             } else {
-               opacity -= 0.1;
+              opacity -= 0.1;
             }
             this.setState({
               opacity,
-              });
+            });
           }, 200);
         }
 
-        componentWillUnmount(){
-          console.log('组件卸载');
-          const {setInterval}=this.state 
-          clearInterval(setInterval)
-         this.setState({
-          isShow:'none'
-         })
+        componentWillUnmount() {
+          console.log("组件卸载");
+          clearInterval(this.setInterval);
+          this.setState({
+            isShow: "none",
+          });
         }
 
-        distoryComponent(){
-          ReactDOM.unmountComponentAtNode(document.getElementById("root"))
+        distoryComponent() {
+          ReactDOM.unmountComponentAtNode(document.getElementById("root"));
         }
 
         render() {
-          const {opacity,isShow} = this.state;
+          const { opacity, isShow } = this.state;
           return (
-            <div style={{display:isShow}}>
+            <div style={{ display: isShow }}>
               <h1 style={{ opacity }}>{this.props.text}</h1>
               <button onClick={this.distoryComponent}>不活了</button>
             </div>
