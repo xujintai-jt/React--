@@ -19,6 +19,11 @@ export default class Blog extends Component {
     });
   }
 
+
+  removeTodo(Todo) {
+
+  }
+
   render() {
     const {todos}=this.state
     return (
