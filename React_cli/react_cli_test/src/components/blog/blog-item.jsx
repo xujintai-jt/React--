@@ -1,11 +1,7 @@
 import { Component } from "react";
 export default class BlogItem extends Component {
-  constructor(props) {
-    super(props);
-    this.deleteTodo = this.deleteTodo.bind(this);
-  }
 
-  deleteTodo(event) {
+  deleteTodo=(event)=> {
   console.log(event);
   }
 
