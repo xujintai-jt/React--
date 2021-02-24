@@ -1,23 +1,36 @@
 import { Component } from "react";
 
 export default class BlogList extends Component {
-  state = {
-    name: "",
-    remarks: "",
-  };
 
-  commitClick = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      remarks: "",
+    };
+    this.commitClick = this.commitClick.bind(this);
+    this.nameChange = this.nameChange.bind(this);
+    this.remarksChange = this.remarksChange.bind(this);
+  }
+
+
+  commitClick() {
     this.props.addTodo(this.state);
+    //清除输入框数据
+    this.setState({
+      name: "",
+      remarks: "",
+    })
   };
 
-  nameChange = (event) => {
+  nameChange (event) {
     const name = event.target.value.trim();
     this.setState({
       name,
     });
   };
 
-  remarksChange = (event) => {
+  remarksChange  (event) {
     const remarks = event.target.value.trim();
     this.setState({
       remarks,

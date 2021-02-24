@@ -3,11 +3,6 @@ import BlogItem from "./blog-item";
 
 export default class BlogAdd extends Component {
  
-
-  deleteTodo=(event)=>{
-  console.log(event);
-  }
-
   render() {
     return (
       <div>

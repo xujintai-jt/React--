@@ -3,20 +3,25 @@ import BlogList from "./blog-list";
 import { Component } from "react";
 
 export default class Blog extends Component {
-  state = {
-    todos: [
-      { name: "wwf", remarks: "hahahahaha" },
-      { name: "wwf2", remarks: "wowowowowo" },
-    ],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [
+        { name: "wwf", remarks: "hahahahaha" },
+        { name: "wwf2", remarks: "wowowowowo" },
+      ],
+    };
+    this.addTodo = this.addTodo.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
+  }
 
-  addTodo = (Todo) => {
+  addTodo(Todo) {
     const { todos } = this.state;
     todos.unshift(Todo);
     this.setState({
       todos,
     });
-  };
+  }
 
   removeTodo(Todo) {}
 
