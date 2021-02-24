@@ -13,15 +13,23 @@
   text-align: center;
 } */
 
-
 .App-title {
   text-align: center;
-  font-size:50px;
+  font-size: 50px;
   line-height: 150px;
   height: 150px;
   background-color: rgb(235, 230, 230);
 }
 
-.flex-container{
+.flex-container {
   display: flex;
+  justify-content: space-around;
+}
+
+.list-margin {
+  margin-left: 60px;
+}
+.list-box {
+  width: 600px;
+  border: 1px solid rgb(182, 182, 182);
 }

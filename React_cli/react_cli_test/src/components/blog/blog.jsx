@@ -20,11 +20,12 @@ export default class Blog extends Component {
   }
 
   render() {
+    const {todos}=this.state
     return (
       <div>
         <div className="flex-container">
           <BlogAdd addTodo={this.addTodo} />
-          <BlogList />
+          <BlogList todos={todos} />
         </div>
       </div>
     );
