@@ -6,8 +6,9 @@ export default class BlogItem extends Component {
   }
 
 
-  deleteTodo(event){
-  console.log(event);
+  deleteTodo() {
+    const { index, removeTodo } = this.props
+    removeTodo(index)
   }
 
   render() {

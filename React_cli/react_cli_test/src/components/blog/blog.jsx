@@ -23,7 +23,13 @@ export default class Blog extends Component {
     });
   }
 
-  removeTodo(Todo) {}
+  removeTodo(index) {
+    const { todos } = this.state
+    todos.splice(index, 1)
+    this.setState({
+      todos
+    })
+  }
 
   render() {
     const { todos } = this.state;
@@ -31,7 +37,7 @@ export default class Blog extends Component {
       <div>
         <div className="flex-container">
           <BlogAdd addTodo={this.addTodo} />
-          <BlogList todos={todos} />
+          <BlogList todos={todos} removeTodo={this.removeTodo}/>
         </div>
       </div>
     );
