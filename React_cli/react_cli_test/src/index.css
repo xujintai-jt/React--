@@ -1,4 +1,4 @@
-.App-img-style {
+/* .App-img-style {
   height: 400px;
   width: 400px;
 }
@@ -11,4 +11,17 @@
 
 .App-root{
   text-align: center;
+} */
+
+
+.App-title {
+  text-align: center;
+  font-size:50px;
+  line-height: 150px;
+  height: 150px;
+  background-color: rgb(235, 230, 230);
+}
+
+.flex-container{
+  display: flex;
 }

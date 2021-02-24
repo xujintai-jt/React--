@@ -1,0 +1,53 @@
+<!--
+ * @Author: xujintai
+ * @Date: 2021-02-24 12:31:59
+ * @LastEditors: xujintai
+ * @LastEditTime: 2021-02-24 12:33:36
+ * @Description: file content
+ * @FilePath: \React--\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Person {
+      FName = "实例属性FirstName"
+      LName = "实例属性LastName"
+
+      constructor(FirstName, LastName) {
+        this.FirstName = FirstName
+        this.LastName = LastName
+      }
+
+      FN1() {
+        return 'FN1'
+      }
+
+      FN2() {
+        return 'FN2'
+      }
+
+      FN3 = function () {
+        return 'FN3'
+      }
+    }
+    let person1 = new Person('王丰', '韦')
+    console.log(Person.prototype.FN1); //函数FN1
+    console.log(person1.FN1); //函数FN1
+
+    console.log(Person.prototype.FName); //undefined  ：FName属性未添加入Person的原型对象中
+    console.log(person1.FName); //"实例属性FirstName"
+
+    console.log(Person.prototype.FN3); //undefined：FN3未添加入Person的原型对象中
+    console.log(person1.FN3); //函数FN3
+  </script>
+</body>
+
+</html>
