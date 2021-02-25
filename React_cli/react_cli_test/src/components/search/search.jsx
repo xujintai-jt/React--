@@ -4,19 +4,15 @@ import axios from 'axios'
 export default class Search extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      searchInfo: "",
-    };
+
     //绑定this
-    this.searchInfoChange = this.searchInfoChange.bind(this)
+    this.searchInfoChange = this.searchInfoChange.bind(this);
     this.getInfo = this.getInfo.bind(this)
   }
 
   searchInfoChange(event) {
-    const searchInfo=event.target.value
-    this.setState({
-      searchInfo
-    })
+    const searchInfo = event.target.value
+    this.props.searchInfoChange(searchInfo)
   }
 
   getInfo() {
@@ -29,8 +25,9 @@ export default class Search extends Component {
     })
   }
 
+
   render() {
-    const {searchInfo}=this.state
+    const {searchInfo}=this.props
     return (
       <header className="search-header">
         <h2 className="margin-left">Search Github Users</h2>
