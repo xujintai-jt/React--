@@ -6,7 +6,7 @@ export default class BlogItem extends Component {
   }
 
   deleteTodo() {
-    if (window.confirm("这个是第三个按钮")) {
+    if (window.confirm("您确定要删除吗")) {
       const { index, removeTodo } = this.props;
       removeTodo(index);
     }
