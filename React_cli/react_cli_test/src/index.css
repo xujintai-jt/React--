@@ -26,10 +26,28 @@
   justify-content: space-around;
 }
 
+
 .list-margin {
   margin-left: 60px;
 }
+
 .list-box {
   width: 600px;
   border: 1px solid rgb(182, 182, 182);
 }
+
+.search-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  height: 25vh;
+  width: 85vw;
+  background-color: rgb(226, 225, 225);
+}
+
+.margin-left {
+  margin-left: 5vw;
+}
+
