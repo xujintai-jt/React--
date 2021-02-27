@@ -55,3 +55,13 @@ input {
   margin-left: 5vw;
 }
 
+.flex-imageItem {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap
+}
+
+.imageItem {
+  height: 400px;
+  width: 300px;
+}

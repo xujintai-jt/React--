@@ -6,7 +6,6 @@ export default class Search extends Component {
 
   constructor(props) {
     super(props)
-
     //绑定this
     this.searchInfoChange = this.searchInfoChange.bind(this);
     this.getInfo = this.getInfo.bind(this)
@@ -18,10 +17,10 @@ export default class Search extends Component {
   }
 
   getInfo() {
-    const { searchInfo } = this.props
-    const url = `https://api.github.com/users?=${searchInfo}`
+    const { searchInfo,setAxios } = this.props
+    const url = `https://api.github.com/search/users?q=${searchInfo}`
     axios.get(url).then(Response => {
-      console.log(Response);
+      setAxios(Response)
     }).catch(error => {
       console.log(error);
     })
@@ -45,5 +44,6 @@ export default class Search extends Component {
 
 Search.propTypes = {
   searchInfo:PropTypes.string.isRequired,
-  searchInfoChange:PropTypes.func.isRequired
+  searchInfoChange: PropTypes.func.isRequired,
+  setAxios: PropTypes.func.isRequired
 }
