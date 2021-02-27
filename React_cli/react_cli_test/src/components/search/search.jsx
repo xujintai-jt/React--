@@ -1,7 +1,9 @@
 import { Component } from "react";
 import axios from 'axios'
+import PropTypes from 'prop-types';
 
 export default class Search extends Component {
+
   constructor(props) {
     super(props)
 
@@ -16,8 +18,8 @@ export default class Search extends Component {
   }
 
   getInfo() {
-    const { searchInfo } = this.state
-    const url = `https://api.github.com/search/users?=${searchInfo}`
+    const { searchInfo } = this.props
+    const url = `https://api.github.com/users?=${searchInfo}`
     axios.get(url).then(Response => {
       console.log(Response);
     }).catch(error => {
@@ -38,4 +40,10 @@ export default class Search extends Component {
       </header>
     );
   }
+}
+
+
+Search.propTypes = {
+  searchInfo:PropTypes.string.isRequired,
+  searchInfoChange:PropTypes.func.isRequired
 }
