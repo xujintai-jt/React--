@@ -29,7 +29,6 @@ export default class App extends Component {
     this.setState({
       searchInfo
     })
-    console.log(this.state.searchInfo);
   }
 
   setAxios(Response) {

@@ -6,7 +6,6 @@ export default class ImageItem extends Component {
 
   render() {
     const { item } = this.props
-    console.log(item);
     return (
       <div className="imageItem">
         <h1>ID{item.id}</h1>
