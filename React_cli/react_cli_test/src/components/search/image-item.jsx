@@ -10,7 +10,7 @@ export default class ImageItem extends Component {
     return (
       <div className="imageItem">
         <h1>ID{item.id}</h1>
-        <img src={item.avatar_url} alt="" />
+        <img  className="imageItem-Img"   alt="图片"  src={item.avatar_url} />
       </div>
     );
   }

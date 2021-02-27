@@ -64,4 +64,10 @@ input {
 .imageItem {
   height: 400px;
   width: 300px;
+  text-align: center;
+}
+
+.imageItem-Img {
+  height: 200px;
+  width: 200px;
 }
