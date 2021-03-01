@@ -1,17 +1,19 @@
 import "./App.css";
-import { Route, Redirect, Switch, NavLink } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
+//自定义组件
 import Home from "./views/Home.jsx";
 import Profile from "./views/Profile.jsx";
+import MyNavLink from "./components/My-NavLink";
 
 function App() {
   return (
     <div className="App">
       <ul className="nav nav-tabs">
         <li role="presentation">
-        <NavLink to="/Home">Home</NavLink>
+        <MyNavLink to="/Home" x="x">Home</MyNavLink>
         </li>
         <li role="presentation">
-        <NavLink to="/Profile">Profile</NavLink>
+        <MyNavLink to="/Profile">Profile</MyNavLink>
         </li>
       </ul>
    
