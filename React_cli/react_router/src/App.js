@@ -10,10 +10,10 @@ function App() {
     <div className="App">
       <ul className="nav nav-tabs">
         <li role="presentation">
-        <MyNavLink to="/Home" x="x">Home1</MyNavLink>
+        <MyNavLink to="/Home" x="x">Home2</MyNavLink>
         </li>
         <li role="presentation">
-        <MyNavLink to="/Profile">Profile1</MyNavLink>
+        <MyNavLink to="/Profile">Profile2</MyNavLink>
         </li>
       </ul>
    
