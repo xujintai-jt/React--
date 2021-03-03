@@ -36,9 +36,8 @@ export default class Message extends Component {
             </li>
           ))}
         </ul>
-        <Switch>
-          <Route path="/Home/Message/:xx"></Route>
-        </Switch>
+
+          <Route path="/Home/Message/:id"></Route>
       </div>
     );
   }
