@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 // 引入公共组件
 import MyNavLink from "../components/My-NavLink";
@@ -20,8 +20,12 @@ export default class Home extends Component {
           </li>
         </ul>
         <Switch>
-          <Route path="/Home/News"  component={News} />
+          {/* <Route path="/Home/News"  component={News} /> */}
+          <Route path="/Home/News">
+            <News></News>
+          </Route>
           <Route path="/Home/Message" component={Message} />
+          <Redirect to="/Home/News" />
         </Switch>
       </div>
     );

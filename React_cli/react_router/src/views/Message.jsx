@@ -1,25 +1,45 @@
-import { Component } from 'react'
+import { Component } from "react";
+import { Link, Switch, Route } from "react-router-dom";
 
 export default class Message extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      news:['message001','message002','message003']
-    }
- }
-
+      messages: [
+        {
+          id: 1,
+          title: "message001",
+          content: "我爱你，message001",
+        },
+        {
+          id: 3,
+          title: "message003",
+          content: "我爱你，message003",
+        },
+        {
+          id: 6,
+          title: "message006",
+          content: "我爱你，message006",
+        },
+      ],
+    };
+  }
 
   render() {
-    const {news} = this.state
+    const { messages } = this.state;
     return (
-      <ul>
-        {
-          news.map(
-            (item, index) =>
-            <li key={index}>{item}</li>
-          )
-        }
-      </ul>
-    )
+      <div>
+        <ul>
+          {messages.map((item, index) => (
+            <li key={index}>
+              <Link to={`/Home/Message/${item.id}`}>{item.title}</Link>
+            </li>
+          ))}
+        </ul>
+        <Switch>
+          <Route path="/Home/Message/:xx"></Route>
+        </Switch>
+      </div>
+    );
   }
 }
