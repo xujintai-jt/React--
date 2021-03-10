@@ -10,6 +10,7 @@ export default class News extends Component {
   }
 
   render() {
+    console.log('News组件的props',this.props);
     const { news } = this.state;
     return (
       <ul>

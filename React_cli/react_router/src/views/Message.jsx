@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Link, Route } from "react-router-dom";
 
 import MessageDetail from './Message-detail'
+import MyLink from '../components/My-NavLink'
 
 export default class Message extends Component {
   constructor(props) {
@@ -34,7 +35,8 @@ export default class Message extends Component {
         <ul>
           {messages.map((item, index) => (
             <li key={index}>
-              <Link to={`/Home/Message/${item.id}`}>{item.title}</Link>
+              {/* <MyLink to={`/Home/Message/${item.id}`}>{item.title}</MyLink> */}
+              <a href={`/Home/Message/${item.id}`}>{item.title}</a>
             </li>
           ))}
         </ul>

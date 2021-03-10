@@ -21,7 +21,7 @@ export default class Home extends Component {
         </ul>
         <Switch>
           {/* <Route path="/Home/News"  component={News} /> */}
-          <Route path="/Home/News">
+          <Route path="/Home/News" >
             <News></News>
           </Route>
           <Route path="/Home/Message" component={Message} />
