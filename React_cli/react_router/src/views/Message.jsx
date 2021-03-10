@@ -1,5 +1,7 @@
 import { Component } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
+
+import MessageDetail from './Message-detail'
 
 export default class Message extends Component {
   constructor(props) {
@@ -37,7 +39,7 @@ export default class Message extends Component {
           ))}
         </ul>
 
-          <Route path="/Home/Message/:id"></Route>
+          <Route path="/Home/Message/:id" component={MessageDetail} ></Route>
       </div>
     );
   }
